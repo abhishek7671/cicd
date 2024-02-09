@@ -19,7 +19,16 @@ pipeline{
         stage('checkout SCM'){
             steps{
                 script{
-                    
+                    git credentialsId: 'github',
+                    url: 'https://github.com/abhishek7671/cicd.git',
+                    branch : 'main'
+                }
+            }
+        }
+        stage('Build Docker Image'){
+            steps{
+                script{
+                    docker_image = docker.build "${IMAGE_NAME}"
                 }
             }
         }
