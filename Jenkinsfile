@@ -19,6 +19,9 @@ pipeline{
         stage('checkout SCM'){
             steps{
                 script{
+                    git credentialsId: 'github',
+                    url: 'https://github.com/abhishek7671/cicd.git',
+                    branch : 'main'
                     
                 }
             }
